@@ -16,8 +16,8 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField('Nombre producto', max_length=70, blank=True, default='')
     url_image = models.ImageField('Imagen Producto', blank=True, null=True, upload_to='products')
-    price = models.FloatField('Precio de Venta', null=True)
-    discount = models.IntegerField('Descuento producto', null=True)
+    price = models.FloatField('Precio de Venta', null=True, default=0)
+    discount = models.IntegerField('Descuento producto', null=True, default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     class Meta:

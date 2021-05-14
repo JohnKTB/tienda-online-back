@@ -16,7 +16,6 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'applications.users',
     'applications.product',
-    'applications.category',
 )
 
 # Aplicaciones de terceros (instaladas con el pip)
