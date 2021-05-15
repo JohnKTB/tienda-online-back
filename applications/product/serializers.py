@@ -1,9 +1,20 @@
 from rest_framework import serializers
 
-from applications.product.models import Product
+from applications.product.models import Product, Category
 from bsale.settings.local import MEDIA_URL
 
 
+# CATEGORIES
+class CategoryListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = (
+            'id',
+            'name'
+        )
+
+
+# PRODUCTS
 class ProducstListSerializer(serializers.ModelSerializer):
     url_image = serializers.SerializerMethodField()
 
