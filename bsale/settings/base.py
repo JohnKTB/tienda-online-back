@@ -1,6 +1,20 @@
+import json
+from datetime import timedelta
+from django.core.exceptions import ImproperlyConfigured
 from unipath import Path
 
 BASE_DIR = Path(__file__).ancestor(3)
+
+with open("secret.json") as f:
+    secret = json.loads(f.read())
+
+
+def get_secret(secret_name, secrets=secret):
+    try:
+        return secrets[secret_name]
+    except:
+        msg = "la variable %s no existe" % secret_name
+        raise ImproperlyConfigured(msg)
 
 SECRET_KEY = 'django-insecure-u%07(tncjys-9gs3&m_5ak_#5u*jw*r2ui4k$1%5z6yx7p$1p='
 
